@@ -9,10 +9,10 @@ This program helps you see
 
 ## Dataset
 The CSV file contains the following columns:
-    - **Product**: Product name
-    - **Type**: Product category
-    - **Quantity**: Number of items sold
-    - **Unit**: Unit type (kg, piece, packet)
+    - **Product**: Product name <br>
+    - **Type**: Product category <br>
+    - **Quantity**: Number of items sold <br>
+    - **Unit**: Unit type (kg, piece, packet) <br>
     - **Rate**: Price per unit
    
 ## Features
