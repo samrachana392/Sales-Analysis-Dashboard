@@ -32,6 +32,9 @@ print(unit_revenue) # prints the unit and the total revenue
 each_type_revenue=df.groupby('Type')['Revenue'].sum().sort_values(ascending=False)
 print("\n Revenues Per type:")
 print(each_type_revenue) # here we can group item by type and see on only one column i.e. revenue only and we can play only with it
+#We grouped by 'Type', We summed the 'Revenue' column, so each_type_revenue.name == 'Revenue'
+# i.e the name of this each_type_revenue series is revenue
+
 
 
 # but here in .agg(), we group item by type same as above but we can see different columns we want in the same function and we can play with any columns we want in the same function
@@ -46,10 +49,19 @@ print(type_summary)
 
 
 # Top 10 products by revenue
-plt.figure(figsize=(10,6))
+plt.figure(figsize=(10,6)) # inside this frame of matplotlib sns barplot s drawn
 sns.barplot(x='Revenue', y='Product', data=products.head(10), palette='Set1')
 plt.title("Top 10 products by Revenue")
 plt.xlabel("Revenue")
 plt.ylabel("Product")
 plt.show()
 
+# Revenue by Type (pie chart)
+plt.figure(figsize=(6,6))
+each_type_revenue.plot(kind='pie', autopct='%.2f%%') # each_type_revenue is a pandas series so when we use .plot(kind='pie), we dont need to worry about labels(veggies,granins,fruits) in the pie chart, it adds this itself 
+    #plt.pie(each_type_revenue.values, labels=each_type_revenue.index, autopct='%.2f%%') 
+    # we can aslo do this, here we have to specify labels ourselves
+plt.ylabel("") # we needed this because while doing .plot, we get revenue as the ylabel itself, what it does is: labels=each_type_revenue.index and ylabel=series name which is revenue in our case
+# to remove this problem of ylabel we can directly use plt.pie() also
+plt.title("Revenue share by each type")
+plt.show()
