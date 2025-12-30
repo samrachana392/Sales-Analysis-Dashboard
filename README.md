@@ -8,7 +8,7 @@ This program helps you see
 - Revenue by unit type (kg, piece, packet)
 
 ## Dataset
-The CSV file contains the following columns:
+The CSV file contains the following columns: <br>
     - **Product**: Product name <br>
     - **Type**: Product category <br>
     - **Quantity**: Number of items sold <br>
